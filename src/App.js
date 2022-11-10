@@ -1,24 +1,20 @@
-import logo from './logo.svg';
+import Stockspage from './Components/StocksPage';
+import Quotespage from './Components/QuotesPage';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Grid } from "@mui/material"
 import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Grid direction={"row"} justifyContent={'center'} alignItems={"center"}>
+      <Router>
+        <Routes>
+          <Route exact path='/' element={<Stockspage />} />
+          <Route exact path='/instruments' element={<Stockspage />} />
+          <Route exact path='/quotes/:id' element={<Quotespage />} />
+        </Routes>
+      </Router>
+    </Grid>
   );
 }
 
